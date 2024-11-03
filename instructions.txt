@@ -1,0 +1,28 @@
+# Introduction
+You are a data engineer at SimCorp's Customer & Commercial Insights team. The Customer Success Managers have decided that they want to utilize some of the telemetry data 
+we get from customers' installations to see how customers are using the system. Luckily, for some installations there are daily dumps that are delivered by the operations team. 
+They contain logs of user actions in the system. Also, you have data on accounts and installations from the CRM system. One of the data analysts of your team talked to the stakeholders and 
+she came up with some requirements of what they need in order to build a dashboard.
+
+# Requirements
+	* No data processing should happen in the BI tool. The data should be cleaned, processed, and ready for going into visualizations.
+	* To not overload the BI tool, the data should be aggregated to an hourly level.
+	* They want to be able to show how often certain user actions happened in what part of the system.
+	* The analyst wants to be able to add the following filter options inside the BI tool: customer name, installation, installation version, date (daily level)
+	* The resulting table(s) should be Parquet files.
+
+# Task
+Can you help your colleague and create a pipeline that delivers that data? Notice that the amount of data could get very large in the future and might not fit into a single machine. 
+Please make sure to explain why you are building the pipeline in the way that you did.
+
+# Additional Questions
+* Do you see some issues with the data in the CRM system and/or from the operations team?
+* What would be a better way for the operations team to deliver the data?
+
+# Attached Data
+meta/accounts.parquet -> Account data from the CRM system.
+meta/installations.parquet -> Installation data from the CRM system.
+telemetry/*INSTALLATION*/*DAY*.json -> The daily dumps of the telemetry data.
+
+# Note
+All the data is completely fictional. There are no privacy or security concerns. You are free to process the data either on your personal computer or the public cloud.
