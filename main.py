@@ -6,9 +6,11 @@ from utils.helper import Helper
 
 # Initialize Spark session
 spark = SparkSession.builder \
-    .appName("TelemetryETL") \
-    .config("spark.default.parallelism", "80") \
-    .config("spark.dynamicAllocation.enabled", "true") \
+    .appName("MyApp") \
+    .config("spark.executor.cores", "4") \
+    .config("spark.executor.memory", "9g") \
+    .config("spark.default.parallelism", "24") \
+    .config("spark.sql.shuffle.partitions", "24") \
     .getOrCreate()
 
 # Load Accounts Data
@@ -24,8 +26,11 @@ installations_df = data_reader.read_parquet(path="/opt/spark-apps/data/meta/inst
 telemetry_schema = Helper().get_telemetry_schema()
 
 # Load telemetry data
-telemetry_df = data_reader.read_json(path="/opt/spark-apps/data/telemetry/**/*.json",telemetry_schema=telemetry_schema)
+# telemetry_df = data_reader.read_json(path="/opt/spark-apps/data/telemetry/**/*.json",telemetry_schema=telemetry_schema)
 
+# for bigger dataset
+telemetry_df = data_reader.read_json(path="/opt/spark-apps/data/telemetry/biggerdataset/**/*.json",telemetry_schema=telemetry_schema)
+
+telemetry_df,installations_df,accounts_df = DataProcessing(spark).clean_data(telemetry_df,installations_df,accounts_df)
 aggregated_df = DataProcessing(spark).transform_data(telemetry_df,installations_df,accounts_df)
 DataWriter(spark).write_parquet(aggregated_df)
-# aggregated_df.write.parquet("/opt/spark-apps/output/processed_telemetry_data.parquet")

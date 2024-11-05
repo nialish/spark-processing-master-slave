@@ -1,7 +1,11 @@
 # Telemetry ETL Pipeline Documentation
 
 ## Project Introduction:
+The Telemetry ETL Pipeline is designed to process and transform raw telemetry data from various customer installations into an aggregated, analytics-ready dataset for business intelligence (BI) reporting. This enables Customer Success Managers and data analysts to:
 
+1. Monitor customer interactions with the system.
+2. Analyze patterns in system usage.
+3. Provide actionable insights based on customer behavior.
 
 ## Project Setup:
 

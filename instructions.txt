@@ -1,8 +1,11 @@
 # Introduction
-You are a data engineer at SimCorp's Customer & Commercial Insights team. The Customer Success Managers have decided that they want to utilize some of the telemetry data 
-we get from customers' installations to see how customers are using the system. Luckily, for some installations there are daily dumps that are delivered by the operations team. 
-They contain logs of user actions in the system. Also, you have data on accounts and installations from the CRM system. One of the data analysts of your team talked to the stakeholders and 
-she came up with some requirements of what they need in order to build a dashboard.
+You are a data engineer at XYZ Customer & Commercial Insights team. The Customer Success Managers have decided that they want 
+to utilize some of the telemetry data we get from customers' installations to see how customers are using the system.
+Luckily, for some installations there are daily dumps that are delivered by the operations team. They contain logs of user 
+actions in the system. Also, you have data on accounts and installations from the CRM system. 
+
+One of the data analysts of your team talked to the stakeholders and she came up with some requirements of what they need 
+in order to build a dashboard.
 
 # Requirements
 	* No data processing should happen in the BI tool. The data should be cleaned, processed, and ready for going into visualizations.
